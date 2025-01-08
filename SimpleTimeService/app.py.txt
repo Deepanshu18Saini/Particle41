@@ -1,0 +1,16 @@
+from flask import Flask, jsonify, request
+import socket
+
+app = Flask(__name__)
+
+@app.route('/')
+def get_time():
+    """
+    Returns a JSON response with the current timestamp and client IP.
+    """
+    current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    client_ip = request.remote_addr
+    return jsonify({"timestamp": current_time, "ip": client_ip})
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', debug=True)
