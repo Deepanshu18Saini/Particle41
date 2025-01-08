@@ -1,0 +1,41 @@
+variable "region" {
+  type        = string
+  description = "AWS Region"
+  default     = "us-east-1"
+}
+
+variable "vpc_cidr" {
+  type        = string
+  description = "VPC CIDR block"
+  default     = "10.0.0.0/16"
+}
+
+variable "public_subnet_cidr_blocks" {
+  type        = list(string)
+  description = "Public subnet CIDR blocks"
+  default     = ["10.0.1.0/24", "10.0.2.0/24"]
+}
+
+variable "private_subnet_cidr_blocks" {
+  type        = list(string)
+  description = "Private subnet CIDR blocks"
+  default     = ["10.0.3.0/24", "10.0.4.0/24"]
+}
+
+variable "instance_type" {
+  type        = string
+  description = "Instance type for EKS nodes"
+  default     = "m6a.large"
+}
+
+variable "node_group_count" {
+  type        = number
+  description = "Number of node groups"
+  default     = 1 
+}
+
+variable "nodes_per_group" {
+  type        = number
+  description = "Number of nodes per group"
+  default     = 2
+}
